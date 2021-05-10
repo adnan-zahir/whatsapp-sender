@@ -107,6 +107,27 @@ body {
   resize: none;
 }
 
+.image-input-container {
+  padding: 0.3em;
+  color: white;
+  background-color: #0095e6;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.image-input-container * {
+  cursor: pointer;
+}
+
+.image-input-container #imageInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+}
+
 .submit-button {
   line-height: 2em;
   color: white;

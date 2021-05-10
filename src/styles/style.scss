@@ -100,6 +100,27 @@ body {
   }
 }
 
+.image-input-container {
+  padding: 0.3em;
+  color: white;
+  background-color: hsl(201, 100%, 45%);
+  overflow: hidden;
+  cursor: pointer;
+
+  * {
+    cursor: pointer;
+  }
+
+  #imageInput {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+  }
+}
+
 .submit-button {
   line-height: 2em;
   color: white;

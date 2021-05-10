@@ -5,10 +5,22 @@ export default function App() {
     name: '',
     phone: '',
     message: '',
+    images: 'Upload Gambar',
   });
 
   const API_LINK = (message) =>
     `whatsapp://send/?phone=62895326932186&text=${message}`;
+
+  function resetForm() {
+    document.getElementById('whatsappForm').reset();
+
+    setInputs({
+      name: '',
+      phone: '',
+      message: '',
+      images: 'Upload Gambar',
+    });
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -22,10 +34,24 @@ export default function App() {
     window.open(API_LINK(text));
     // fetchPage(API_LINK(text));
 
+    resetForm();
+  }
+
+  function handleImage(e) {
+    const imageInput = e.target;
+
+    const filenames = Object.values(imageInput.files).map((file) => file.name);
+
+    const compiledText = filenames.join(', ');
+
+    console.log(compiledText);
+
+    if (imageInput.value === '')
+      return setInputs({ ...inputs, images: 'Upload Gambar' });
+
     setInputs({
-      name: '',
-      phone: '',
-      message: '',
+      ...inputs,
+      images: compiledText,
     });
   }
 
@@ -82,9 +108,23 @@ export default function App() {
               ></textarea>
               <span>Pesan</span>
             </label>
+            <label
+              htmlFor="image-input"
+              className="input-container image-input-container"
+            >
+              <input
+                type="file"
+                name="image-input"
+                id="imageInput"
+                accept="image/*"
+                multiple
+                onChange={handleImage}
+              />
+              <span id="uploadText">{inputs.images}</span>
+            </label>
             <button
               className="submit-button"
-              id="submitBut"
+              id="submitButton"
               onClick={handleSubmit}
             >
               Send
