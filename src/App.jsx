@@ -14,9 +14,9 @@ export default function App() {
     e.preventDefault();
 
     const text = `
-    Pengirim: ${inputs.name}
-    Telepon: ${inputs.phone}
-    
+    Pengirim: ${inputs.name}\n
+    Telepon: ${inputs.phone}\n
+    \n
     ${inputs.message}`;
 
     window.open(API_LINK(text));
