@@ -8,7 +8,7 @@ export default function App() {
   });
 
   const API_LINK = (message) =>
-    `https://api.whatsapp.com/send?phone=62895326932186&text=${message}`;
+    `whatsapp://send/?phone=62895326932186&text=${message}`;
 
   function handleSubmit(e) {
     e.preventDefault();
